@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { ThemeContext } from "../components/ThemeProvider";
 import { AuthContext } from "../components/AuthProvider";
+import { Outlet } from "react-router";
+import WrapperComponent from "../hoc/wrapper";
 
 function Dashboard() {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -19,10 +21,17 @@ function Dashboard() {
   return (
     <div>
       <h1>Dashboard</h1>
+      <nav>
+        <ul>
+          <li>Dashboard Settings</li>
+          <li>Dasboard Admin Settings</li>
+        </ul>
+      </nav>
       <h1>{isAuthenticated ? "Welcome Back!" : "Please Log In"}</h1>
       <button onClick={handleTheme}>Toggle</button>
       <button onClick={handleAuthentication}>Login/Logout</button>
+      <Outlet />
     </div>
   );
 }
-export default Dashboard;
+export default WrapperComponent(Dashboard);

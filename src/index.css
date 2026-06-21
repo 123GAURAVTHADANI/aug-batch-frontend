@@ -119,3 +119,24 @@ body.dark {
   background: #121212;
   color: white;
 }
+
+.product__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.card {
+  background-color: #6506d8;
+  border: 1px solid lightgrey;
+  color: white;
+}
+
+.card > img {
+  width: 100%;
+  transition: all 1s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
